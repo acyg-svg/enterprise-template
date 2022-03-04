@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<aside th:fragment="sidebar-fragment(path)" class="main-sidebar sidebar-dark-success elevation-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a th:href="@{/admin/index}" th:class="${path}=='index'?'nav-link active':'nav-link'">
+                        <i class="nav-icon fa fa-dashboard"></i>
+                        <p>
+                            后台首页
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">官网配置</li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/aboutpage}" th:class="${path}=='aboutpage'?'nav-link active':'nav-link'">
+                    <i class="nav-icon fa fa-comment"></i>
+                    <p>
+                        公司介绍配置
+                    </p>
+                    </a>
+                </li>
+                <li class="nav-header">首页配置</li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/carousels}"
+                       th:class="${path}=='carousel'?'nav-link active':'nav-link'">
+                        <i class="nav-icon fa fa-file-image-o"></i>
+                        <p>
+                            轮播图配置
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/announcement}"
+                       th:class="${path}=='announcement'?'nav-link active':'nav-link'">
+                        <i class="nav-icon fa fa-newspaper-o"></i>
+                        <p>
+                            公告配置
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a th:href="@{/admin/indexConfigs?configType=4}"
+                       th:class="${path}=='INDEX_GOODS_NEW'?'nav-link active':'nav-link'">
+                        <i class="nav-icon fa fa-hand-o-up"></i>
+                        <p>
+                            新品上线配置
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">管理模块</li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/categories?parentId=0&categoryLevel=1&backParentId=0}"
+                       th:class="${path}=='category'?'nav-link active':'nav-link'">
+                        <i class="fa fa-list-alt nav-icon" aria-hidden="true"></i>
+                        <p>
+                            分类管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/goods}" th:class="${path}=='goods'?'nav-link active':'nav-link'">
+                        <i class="fa fa-archive nav-icon" aria-hidden="true"></i>
+                        <p>
+                            商品管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/users}" th:class="${path}=='users'?'nav-link active':'nav-link'">
+                        <i class="fa fa-users nav-icon" aria-hidden="true"></i>
+                        <p>
+                            会员管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/orders}" th:class="${path}=='orders'?'nav-link active':'nav-link'">
+                        <i class="fa fa-money nav-icon" aria-hidden="true"></i>
+                        <p>
+                            订单管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">系统管理</li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/profile}"
+                       th:class="${path}=='profile'?'nav-link active':'nav-link'">
+                        <i class="fa fa-user-secret nav-icon"></i>
+                        <p>修改密码</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/logout}" class="nav-link">
+                        <i class="fa fa-sign-out nav-icon"></i>
+                        <p>安全退出</p>
+                    </a>
+                </li>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+</html>

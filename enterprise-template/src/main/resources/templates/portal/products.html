@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!--Created by Aravind on 23 Oct 2017-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!--jQUERY should always come first before Bootstrap-->
+    <base target="_blank">
+    <script th:src="@{/portal/js/jquery-3.2.1.js}"></script>
+    <link rel="icon" href="images/dp.png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>企业产品</title>
+
+    <!----------------BOOTSTRAP----------------------->
+
+    <link rel="stylesheet" th:href="@{portal/css/bootstrap.min.css}">
+    <!----------------GOOGLE FONTS----------------------->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Spectral}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{portal/css/prod_styles.css}">
+    <link rel="stylesheet" th:href="@{portal/css/animate.min.css}">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top menu">
+        <div class="container">
+            <ul class="ul" align="center">
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/portal';" class="hyperlink">官网首页</a>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/about';" class="hyperlink">企业简介</a></li>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/product';" class="hyperlink">企业产品</a></li>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/';" class="hyperlink">官方商城</a></li>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/contact';" class="hyperlink">联系我们</a></li>
+            </ul>
+
+            <a onclick="javascript:window.location.href='/login';">
+              <button id="login_btn" type="reset" class="btn">登录</button>
+            </a>
+        </div>
+    </nav>
+
+    <div ng-app="" class="container-fluid ENTIRE_PAGE">
+        <div class="row">
+            <div class="jumbotron col-md-12 col-sm-6 col-xs-6">
+
+                <div class="container jumbo_text section">
+                    <div class="animated fadeInDown">
+                        <span id="my_name">我们的产品</span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="container-fluid">
+                        <div id="p_row1" class="proj_box row">
+
+                            <a href="#">
+                                <div class="col-md-4 proj_link">
+                                    <img th:src="@{/portal/images/vc.jpg}" class="img-resposive proj_img"></img>
+                                    <div class="proj_title">维生素C</div>
+                                    <div class="proj_desc">
+                                        促进骨胶原的生物合成，利于组织创伤口的更快愈合。
+                                        改善铁、钙和叶酸的利用；
+                                    </div>
+                                    <div class="proj_lang proj_lang_android">保健品</div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="col-md-4 proj_link">
+                                    <img th:src="@{/portal/images/vb.jpg}" class="img-resposive proj_img"></img>
+                                    <div class="proj_title">复合维生素B</div>
+                                    <div class="proj_desc">
+                                        复合维生素B片，预防和治疗B族维生素缺乏所致的营养不良、厌食、脚气病、糙皮病等。
+                                    </div>
+                                    <div class="proj_lang proj_lang_android">保健品</div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="col-md-4 proj_link">
+
+                                    <img th:src="@{/portal/images/blsna.jpg}" class="img-resposive proj_img"></img>
+                                    <div class="proj_title">玻璃酸钠</div>
+                                    <div class="proj_desc">
+                                        适应症为伴随下述疾患的角结膜上皮损伤： ·干燥综合征、斯·约二氏综合征、干眼综合征等内因性疾患； · 配戴隐形眼镜等外因性疾患。
+                                    </div>
+                                    <div class="proj_lang proj_lang_vb">眼科</div>
+
+                                </div>
+                            </a>
+                        </div>
+                        <!--SECOND ROW-->
+                        <div id="p_row2" class="proj_box row">
+
+                            <a href="#">
+                                <div class="col-md-4 proj_link">
+
+                                    <img th:src="@{/portal/images/alun.jpg}" class="img-resposive proj_img"></img>
+                                    <div class="proj_title">阿仑膦酸钠片</div>
+                                    <div class="proj_desc">
+                                        阿仑膦酸钠片通过多种作用机制对骨质疏松有益。可抑制破骨过程、维持骨结构、改善矿化程度，有效降低椎体、髋骨和其他部位的骨折危险。
+                                    </div>
+                                    <div class="proj_lang proj_lang_java">骨科</div>
+
+                                </div>
+                            </a>
+
+
+                            <a href="#">
+                                <div class="col-md-4 proj_link">
+
+                                    <img th:src="@{/portal/images/ll.jpg}" class="img-resposive proj_img"></img>
+                                    <div class="proj_title">氯雷他定片</div>
+                                    <div class="proj_desc">
+                                        适应症为用于缓解过敏性鼻炎有关的症状，如喷嚏、流涕、鼻痒、鼻塞以及眼部痒及烧灼感。口服药物后，鼻和眼部症状及体征得以迅速缓解。
+                                    </div>
+                                    <div class="proj_lang proj_lang_py">呼吸系统</div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="col-md-4 proj_link">
+
+                                    <img th:src="@{/portal/images/yq.jpg}" class="img-resposive proj_img"></img>
+                                    <div class="proj_title">氧氟沙星胶囊</div>
+                                    <div class="proj_desc">
+                                        适应症为适用于敏感菌引起的：泌尿生殖系统感染，包括单纯性、复杂性尿路感染、细菌性前列腺炎、淋病奈瑟菌尿道炎或宫颈炎。
+                                    </div>
+                                    <div class="proj_lang proj_lang_git">泌尿系统</div>
+
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script th:src="@{portal/js/angular.min.js}"></script>
+    <script th:src="@{portal/js/scripts.js}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<!--Created by Aravind on 23 Oct 2017-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!--jQUERY should always come first before Bootstrap-->
+    <base target="_blank">
+    <script th:src="@{portal/js/jquery-3.2.1.js}"></script>
+    <link rel="icon" href="images/dp.png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>联系我们</title>
+
+    <!----------------BOOTSTRAP----------------------->
+
+    <link rel="stylesheet" th:href="@{/portal/css/bootstrap.min.css}">
+    <!----------------GOOGLE FONTS----------------------->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Spectral}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/portal/css/contact_styles.css}">
+    <link rel="stylesheet" th:href="@{/portal/css/animate.min.css}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top menu">
+        <div class="container">
+            <ul class="ul" align="center">
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/portal';" class="hyperlink">官网首页</a>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/about';" class="hyperlink">企业简介</a></li>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/product';" class="hyperlink">企业产品</a></li>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/';" class="hyperlink">官方商城</a></li>
+                <li><a href="javascript:void(0);" onclick="javascript:window.location.href='/contact';" class="hyperlink">联系我们</a></li>
+            </ul>
+            <a onclick="javascript:window.location.href='/login';">
+            <button id="login_btn" type="reset" class="btn">登录</button>
+            </a>
+        </div>
+    </nav>
+
+    <div ng-app="" class="container-fluid ENTIRE_PAGE">
+        <div class="row">
+            <div class="jumbotron col-md-12 col-sm-6 col-xs-6">
+
+                <div class="container jumbo_text section">
+                    <div class="animated fadeInDown">
+                        <span id="cont_heading" class="jumbo_text">
+    与我们取得联系 </span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div id="cont" class="col-md-12 col-sm-12 col-xs-12">
+
+
+
+                        <br><br><br>
+
+                        <div class="container-fluid last">
+                            <div class="row" align="center">
+
+                                <div class="infome col-md-6 col-xs-12">
+                                    <span class="skill_title">XX 制药</span>
+                                    <br><br>
+
+                                    <div class="row">
+                                        <a href="tel:+918762315968">
+                                            <div class="col-md-4 col-xs-4">
+                                                <img th:src="@{/portal/images/mob.png}" class="inf_icon img-responsive" />
+                                                <span class="inf_text">+86 8762315968</span>
+                                            </div>
+                                        </a>
+
+                                        <a href="xxpharma@live.com">
+                                            <div class="col-md-4  col-xs-4">
+                                                <img th:src="@{/portal/images/mail.png}" class="inf_icon img-responsive" />
+                                                <span class="inf_text">xxx@.com</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="row">
+                                        <br><br>
+                                        <div class="col-md-4  col-xs-4">
+                                            <img th:src="@{/portal/images/home.png}" class="inf_icon img-responsive" />
+                                            <span class="inf_text">广东省广州市从化区</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <form class="form col-md-6 col-xs-12">
+                                    <div class="inputbox">
+                                        <span class="label">姓名</span><br>
+                                        <input ng-model="name" id="name" name="subject" class="inputtext" type="text">
+                                    </div>
+                                    <div class="inputbox">
+                                        <span class="label">电话号码</span><br>
+                                        <input ng-model="phone" id="ph" class="inputtext" type="text">
+                                    </div>
+                                    <div class="inputbox">
+                                        <span class="label">发信息</span><br>
+                                        <textarea ng-model="body" id="msg" class="inputtext" rows="5" name="body"></textarea>
+                                    </div>
+
+                                    <a href="">
+                                <button type="submit" class="btn">发送</button>
+                            </a>
+                                </form>
+
+                                    <button id="clear_btn" type="reset" class="btn">清空</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script th:src="@{/portal/js/angular.min.js}"></script>
+    <script th:src="@{/portal/js/scripts.js}"></script>
+
+</body>
+
+</html>

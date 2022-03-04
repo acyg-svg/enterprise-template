@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cyg.enterprise.dao.AnnouncementMapper">
+<resultMap id="BaseResultMap" type="cn.cyg.enterprise.entity.Announcement">
+    <id column="announcement_id" jdbcType="INTEGER" property="announcementId"/>
+    <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    <result column="uptime" jdbcType="TIMESTAMP" property="uptime"/>
+</resultMap>
+    <sql id="Base_Column_List">
+        announcement_id, content, uptime
+    </sql>
+    <select id="findAnnouncementList" parameterType="Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from announcement
+        <!--<where>
+            <if test="content!=null and content!=''">
+                and content = #{content}
+            </if>
+        </where>-->
+        order by uptime desc
+        <if test="start!=null and limit!=null">
+            limit #{start},#{limit}
+        </if>
+    </select>
+
+    <select id="getTotalAnnouncements" parameterType="Map" resultType="int">
+        select count(*) from announcement
+        <where>
+            <if test="content!=null and content!=''">
+                and content = #{content}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+       select
+       <include refid="Base_Column_List"/>
+       from announcement
+       where announcement_id = #{announcementId,jdbcType=INTEGER}
+    </select>
+
+    <select id="findAnnouncementByNum" parameterType="int" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from announcement
+        order by uptime desc
+        limit #{number}
+    </select>
+
+    <insert id="insertSelective" parameterType="cn.cyg.enterprise.entity.Announcement">
+        insert into announcement
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">
+                content,
+            </if>
+            <if test="uptime != null">
+                uptime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="uptime != null">
+                #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="cn.cyg.enterprise.entity.Announcement">
+        update announcement
+        <set>
+            <if test="content != null">
+                content = #{content,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="uptime != null">
+                uptime = #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where announcement_id = #{announcementId,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteBatch">
+      delete from announcement
+      where announcement_id in
+      <foreach item="id" collection="array" open="(" separator="," close=")">
+          #{id}
+      </foreach>
+    </delete>
+</mapper>

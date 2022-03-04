@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cyg.enterprise.dao.AboutMapper">
+    <resultMap id="BaseResultMap" type="cn.cyg.enterprise.entity.About">
+        <id column="about_id" jdbcType="INTEGER" property="aboutId"/>
+        <result column="about_rank" jdbcType="INTEGER" property="aboutRank"/>
+        <result column="sub_time" jdbcType="TIMESTAMP" property="subTime"/>
+        <result column="about_title" jdbcType="VARCHAR" property="aboutTitle"/>
+    </resultMap>
+    
+    <resultMap  extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.cyg.enterprise.entity.About">
+        <result column="about_content" jdbcType="LONGVARCHAR" property="aboutContent"/>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        about_id, about_rank, sub_time, about_title
+    </sql>
+    <sql id="Blob_Column_List">
+        about_content
+    </sql>
+
+    <select id="findAboutList" parameterType="Map" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List"></include>
+        from about
+        order by sub_time desc
+        <if test="start!=null and limit!=null">
+            limit #{start},#{limit}
+        </if>
+    </select>
+
+    <select id="getTotalAbouts" parameterType="Map" resultType="int">
+        select count(*) from about
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from about
+        where about_id = #{aboutId,jdbcType=INTEGER}
+    </select>
+    
+    <select id="findAboutByNum" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from about
+        order by about_rank desc
+        limit #{number}
+    </select>
+
+    <insert id="insertSelective" parameterType="cn.cyg.enterprise.entity.About">
+        insert into about
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="aboutId != null">
+                about_id,
+            </if>
+            <if test="aboutTitle != null">
+                about_title,
+            </if>
+            <if test="aboutRank != null">
+                about_rank,
+            </if>
+            <if test="subTime != null">
+                sub_time,
+            </if>
+            <if test="aboutContent != null">
+                about_content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="aboutId != null">
+                #{aboutId,jdbcType=INTEGER},
+            </if>
+            <if test="aboutTitle != null">
+                #{aboutTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="aboutRank != null">
+                #{aboutRank,jdbcType=INTEGER},
+            </if>
+            <if test="subTime != null">
+                #{subTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aboutContent != null">
+                #{aboutContent,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    
+    <update id="updateByPrimaryKeySelective" parameterType="cn.cyg.enterprise.entity.About">
+        update about
+        <set>
+            <if test="aboutTitle != null">
+                about_title = #{aboutTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="aboutRank != null">
+                about_rank = #{aboutRank,jdbcType=INTEGER},
+            </if>
+            <if test="subTime != null">
+                sub_time = #{subTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aboutContent != null">
+                about_content = #{aboutContent,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where about_id = #{aboutId,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteBatch">
+        delete from about
+        where about_id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

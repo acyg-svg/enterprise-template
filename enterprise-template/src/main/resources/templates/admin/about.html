@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:replace="admin/header::header-fragment">
+</header>
+<style>
+    .ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+        height: auto;
+        vertical-align: text-top;
+        padding-top: 2px;
+    }
+
+    a {
+        color: #1baeae;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+    a:hover {
+        color: white;
+        background-color: #1baeae;
+    }
+</style>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <div th:replace="admin/header::header-nav"></div>
+    <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3>企业简介管理</h3>
+                        <!-- card-body-->
+                        <div class="card-body">
+                            <div class="grid-btn">
+                                <button class="btn btn-info" onclick="function addAbout() {
+                                                  window.location.href = '/admin/about/edit';
+                                }
+                                addAbout()">
+                                    <li class="fa fa-plus"></li>&nbsp;新增
+                                </button>
+                                <button class="btn btn-success" onclick="function editAbout() {
+                                var id = getSelectedRow();
+                                if (id == null){
+                                    return;
+                                }
+                                window.location.href = '/admin/about/edit/' + id;
+                                }
+                                editAbout()">
+                                    <li class="fa fa-pencil-square-o"></li>&nbsp;修改
+                                </button>
+                                <button class="btn btn-danger" onclick="aboutDelete()"><li
+                                        class="fa fa-trash-o"></li>&nbsp;删除
+                                </button>
+                            </div>
+                            <br>
+                            <table id="jqGrid" class="table table-bordered">
+                            </table>
+                            <div id="jqGridPager"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- 引入页脚footer-fragment -->
+    <div th:replace="admin/footer::footer-fragment"></div>
+</div>
+<script>
+    function aboutDelete() {
+        var ids = getSelectedRows();
+        if (ids == null){
+            return;
+        }
+        swal({
+            title: "确认弹框",
+            text: "确认要删除数据吗？",
+            icon: "warning?",
+            buttons: true,
+            dangerMode: true
+        }).then((flag) => {
+                if (flag) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/about/delete",
+                        contentType: "application/json",
+                        data: JSON.stringify(ids),
+                        success: function (r) {
+                            if (r.resultCode == 200) {
+                                swal("删除成功", {
+                                    icon: "success",
+                                });
+                                $('#jqGrid').trigger("reloadGrid");
+                            } else {
+                                swal(r.message, {
+                                    icon: "error",
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+        )
+        ;
+    }
+</script>
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+<!-- jqgrid -->
+<script th:src="@{/admin/plugins/jqgrid-5.5.2/jquery.jqGrid.min.js}"></script>
+<script th:src="@{/admin/plugins/jqgrid-5.5.2/grid.locale-cn.js}"></script>
+<!-- sweetalert -->
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script th:src="@{/admin/dist/js/public.js}"></script>
+<script th:src="@{/admin/dist/js/about.js}"></script>
+</body>
+</html>

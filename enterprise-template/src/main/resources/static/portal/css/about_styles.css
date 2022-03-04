@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'Calluna';
+    src: url('fonts/Calluna.eot');
+    /* IE9 Compat Modes */
+    src: url('fonts/Calluna.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/Calluna.woff') format('woff'), /* Modern Browsers */
+    url('Calluna.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('Calluna.svg#svgFontName') format('svg');
+    /* Legacy iOS */
+}
+
+.ENTIRE_PAGE {
+    display: none;
+    opacity: 0;
+    -webkit-animation: appear 1s normal;
+    animation: appear 1s normal;
+}
+
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    border-radius: 0 !important;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url('../images/about_banner.jpeg');
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+}
+
+.jumbo_text {
+    color: white;
+    text-shadow: 0 0 0.2rem gray;
+}
+
+#my_name {
+    font-size: 390%;
+}
+
+.animated {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+/*START OF ABOUT.HTML*/
+
+@keyframes appear {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+li {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+li a {
+    font-weight: bold;
+    font-family: 'Calluna';
+    font-family: 'Calluna';
+}
+
+li a:hover,
+li a:active,
+li a:focus,
+li a:visited {
+    color: white;
+}
+
+.row a:hover,
+.row a:active,
+.row a:focus,
+.row a:visited {
+    color: white;
+}
+
+.proj_link a:hover,
+.proj_link a:active,
+.proj_link a:focus,
+.proj_link a:visited {
+    color: black;
+}
+
+a:hover,
+a:active,
+a:focus,
+a:visited {
+    text-decoration: none;
+}
+
+.hyperlink {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    z-index: 4;
+    position: relative;
+    cursor: pointer;
+    cursor: hand;
+    text-shadow: 0 0 0.1rem white;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border 400ms;
+    transition: border 400ms;
+    color: #ffffff;
+}
+
+.hyperlink:hover {
+    text-shadow: 0 0 0.3rem white;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 2px solid #ffffff;
+}
+
+.navbar-fixed-top {
+    position: absolute;
+}
+
+.ul {
+    padding: 0;
+}
+
+body {
+    font-family: 'Calluna';
+    overflow-x: hidden;
+    background: #151515;
+}
+
+.section {
+    margin-top: 6rem;
+}
+
+.skill_title {
+    font-size: 250%;
+}
+
+
+.btn {
+    margin-left: 2.1rem;
+    background-color: transparent;
+    border: 0.2rem solid white;
+    border-radius: 0%;
+    color: white;
+    -webkit-transition: color 400ms;
+    transition: color 400ms;
+    -webkit-transition: background 400ms;
+    transition: background 400ms;
+    font-weight: bold;
+    padding: 1rem;
+    width: 35%;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+#resume_icon {
+    max-height: 5.6rem;
+}
+
+.resume_text {
+    word-break: keep-all
+}
+
+#login_btn {
+    float: right;
+    width: 10rem;
+    margin-top: -6rem;
+}
+
+.desc {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 3rem;
+    color: white;
+    font-family: 'Calluna', sans-serif;
+    font-size: 2.3rem;
+}
+
+.short_desc {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.0);
+    margin-top: 5rem;
+    width: 100vw;
+    font-size: 1.7rem;
+    margin-left: -8rem;
+}

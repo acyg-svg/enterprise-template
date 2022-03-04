@@ -1,0 +1,312 @@
+@font-face {
+    font-family: 'Calluna';
+    src: url('fonts/Calluna.eot');
+    /* IE9 Compat Modes */
+    src: url('fonts/Calluna.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/Calluna.woff') format('woff'), /* Modern Browsers */
+    url('Calluna.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('Calluna.svg#svgFontName') format('svg');
+    /* Legacy iOS */
+}
+
+.ENTIRE_PAGE {
+    display: none;
+    opacity: 0;
+    -webkit-animation: appear 1s normal;
+    animation: appear 1s normal;
+}
+
+
+.jumbotron,
+.jumb_login {
+    text-align: center;
+    background-color: transparent;
+    border-radius: 0 !important;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url('../images/cont_banner.jpeg');
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+}
+
+.jumb_login {
+    background-image: url('../images/login_banner.jpg');
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.jumbo_text {
+    color: white;
+    text-shadow: 0 0 0.2rem gray;
+}
+
+#my_name {
+    font-size: 390%;
+}
+
+.animated {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+
+#my_subtitle {
+    font-family: monospace, monospace;
+    font-size: 190%;
+}
+
+#my_subtitle:after {
+    content: "_";
+    opacity: 1;
+    -webkit-animation: cursor 1s infinite;
+    animation: cursor 1s infinite;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+
+@keyframes cursor {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+li {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+li a {
+    font-weight: bold;
+    font-family: 'Calluna';
+    font-family: 'Calluna';
+}
+
+li a:hover,
+li a:active,
+li a:focus,
+li a:visited {
+    color: white;
+}
+
+.row a:hover,
+.row a:active,
+.row a:focus,
+.row a:visited {
+    color: white;
+}
+
+
+
+a:hover,
+a:active,
+a:focus,
+a:visited {
+    text-decoration: none;
+}
+
+.hyperlink {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    z-index: 4;
+    position: relative;
+    cursor: pointer;
+    cursor: hand;
+    text-shadow: 0 0 0.1rem white;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border 400ms;
+    transition: border 400ms;
+    color: #ffffff;
+}
+
+.hyperlink:hover {
+    text-shadow: 0 0 0.3rem white;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 2px solid #ffffff;
+}
+
+.navbar-fixed-top {
+    position: absolute;
+}
+
+.ul {
+    padding: 0;
+}
+
+body {
+    font-family: 'Calluna';
+    overflow-x: hidden;
+    background: #151515;
+}
+
+.section {
+    margin-top: 6rem;
+}
+
+#cont_heading {
+    font-size: 250%;
+    color: white;
+    text-shadow: 0 0 0.1rem white;
+}
+
+.label {
+    float: left;
+    color: lightgray;
+    margin-left: -0.8rem;
+}
+
+.inputbox {
+    margin: 2rem;
+    margin-bottom: 3rem;
+    color: #f4f4f4;
+}
+
+.form,
+.login_form {
+    padding: 2rem;
+    font-family: 'Spectral', serif;
+
+}
+
+.inputtext {
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1rem solid lightgray;
+    outline: none;
+    width: 100%;
+    font-size: 200%;
+}
+
+#msg,
+#ph {
+    font-size: 120%;
+}
+
+.btn {
+    margin-left: 2.1rem;
+    background-color: transparent;
+    border: 0.2rem solid white;
+    border-radius: 0%;
+    color: white;
+    -webkit-transition: color 400ms;
+    transition: color 400ms;
+    -webkit-transition: background 400ms;
+    transition: background 400ms;
+    font-weight: bold;
+    padding: 1rem;
+    width: 35%;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.infome {
+    color: white;
+    margin-top: 3rem;
+}
+
+.inf_icon {
+    border-radius: 32%;
+    border: 0.2rem solid white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    -webkit-transition: -webkit-box-shadow 400ms;
+    transition: -webkit-box-shadow 400ms;
+    transition: box-shadow 400ms;
+    transition: box-shadow 400ms, -webkit-box-shadow 400ms;
+}
+
+.inf_icon:hover {
+    -webkit-box-shadow: 0 0 1rem white;
+    box-shadow: 0 0 1rem white;
+}
+
+.padder {
+    padding-top: 1.5rem;
+    width: auto;
+}
+
+.img_padder {
+    width: auto;
+}
+
+.inf_text {
+    word-break: break-all;
+    color: white;
+    font-family: 'Spectral';
+}
+
+.menu {
+    opacity: 0;
+    display: none;
+}
+
+#load_my_subtitle {
+    font-family: monospace, monospace;
+    font-size: 300%;
+    color: white;
+    line-height: 90vh;
+    vertical-align: middle;
+}
+
+#load_my_subtitle:after {
+    content: "_";
+    opacity: 1;
+    -webkit-animation: cursor 1s infinite;
+    animation: cursor 1s infinite;
+}
+
+@keyframes float {
+    0% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    50% {
+        -webkit-transform: translateY(-10%);
+        transform: translateY(-10%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+}
+
+.skill_title {
+    font-size: 250%;
+    margin-right: 15rem;
+}
+
+
+#login_btn {
+    float: right;
+    width: 10rem;
+    margin-top: -6rem;
+}
+
+.login_form {
+    margin: auto auto;
+    position: absolute;
+    left: 32%;
+    font-size: 1.8rem;
+}
